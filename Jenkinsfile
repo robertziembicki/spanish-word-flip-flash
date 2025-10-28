@@ -29,6 +29,7 @@ pipeline {
                     }
                     steps {
                         // Unit tests with Vitest
+                        sh 'npm ci'
                         sh 'npm run test:unit --reporter=verbose'
                     }
                 }
