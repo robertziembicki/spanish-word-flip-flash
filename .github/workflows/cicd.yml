@@ -61,6 +61,12 @@ jobs:
         run: npx playwright install --with-deps
       - name: Run Playwright Tests
         run: npx playwright test
+      - uses: actions/upload-atrtifact@v4
+        if: ${{ !cancelled() }}
+        with: 
+          name: Integration Test (Playwright)
+          path: reports-e2e/html/
+          if-no-files-found: error
 
   
   deploy:
